@@ -1,18 +1,54 @@
 {
     "products": [
-        {
-            "product_url": "https://sklep.pl/produkty/laptop-xps-15",
-            "picture_url": "https://sklep.pl/images/laptop-xps-15.jpg",
-            "price": 5999.99,
-            "currency": "PLN",
-            "quantity": 12
-        },
-        {
-            "product_url": "https://sklep.pl/produkty/smartfon-galaxy-s23",
-            "picture_url": "https://sklep.pl/images/smartfon-galaxy-s23.jpg",
-            "price": 3499.00,
-            "currency": "PLN",
-            "quantity": 25
-        }
+      {
+        "product_url": "https://botland.com.pl/raspberry-pi-400/20993-maker-hat-base-rozszerzenie-hat-gpio-do-raspberry-pi-400.html",
+        "picture_url": "https://botland.com.pl/raspberry-pi-400/20993-maker-hat-base-rozszerzenie-hat-gpio-do-raspberry-pi-400.jpg",
+        "provider": "botland.com.pl",
+        "description": "Maker Hat Base - Rozszerzenie HAT GPIO do Raspberry Pi 400",
+        "EAN": "",
+        "price": 23.9,
+        "currency": "PLN",
+        "quantity": 23
+      },
+      {
+        "product_url": "https://botland.com.pl/raspberry-pi-hat-ekspandery-wyprowadzen/19895-io-expansion-hat-ekspander-wyprowadzen-do-raspberry-pi-zerozero-w-dfrobot-dfr0604-6959420915910.html",
+        "picture_url": "https://botland.com.pl/raspberry-pi-hat-ekspandery-wyprowadzen/19895-io-expansion-hat-ekspander-wyprowadzen-do-raspberry-pi-zerozero-w-dfrobot-dfr0604-6959420915910.jpg",
+        "provider": "botland.com.pl",
+        "description": "IO Expansion HAT - Ekspander wyprowadzeń do Raspberry Pi Zero/Zero W (DFRobot DFR0604)",
+        "EAN": "6959420915910",
+        "price": 0,
+        "currency": "PLN",
+        "quantity": 0
+      },
+      {
+        "product_url": "https://botland.com.pl/raspberry-pi-hat-ekspandery-wyprowadzen/20082-usb-hub-hat-b-4-portowy-hub-nakladka-do-raspberry-pi-4b3b3bzero-waveshare-20317-5904422380052.html",
+        "picture_url": "https://botland.com.pl/raspberry-pi-hat-ekspandery-wyprowadzen/20082-usb-hub-hat-b-4-portowy-hub-nakladka-do-raspberry-pi-4b3b3bzero-waveshare-20317-5904422380052.jpg",
+        "provider": "botland.com.pl",
+        "description": "USB HUB HAT-B - 4-portowy Hub nakładka do Raspberry Pi 4B/3B+/Zero (Waveshare 20317)",
+        "EAN": "5904422380052",
+        "price": 0,
+        "currency": "PLN",
+        "quantity": 0
+      },
+      {
+        "product_url": "https://botland.com.pl/rozszerzenia-gpio-do-raspberry-pi/13309-servo-driver-hat-ic-test-board-sterownik-16-serwomechanizmow-dla-raspberry-pi-waveshare-15275-5904422320478.html",
+        "picture_url": "https://botland.com.pl/rozszerzenia-gpio-do-raspberry-pi/13309-servo-driver-hat-ic-test-board-sterownik-16-serwomechanizmow-dla-raspberry-pi-waveshare-15275-5904422320478.jpg",
+        "provider": "botland.com.pl",
+        "description": "Servo Driver HAT IC Test Board - Sterownik 16 serwomechanizmów dla Raspberry Pi (Waveshare 15275)",
+        "EAN": "5904422320478",
+        "price": 0,
+        "currency": "PLN",
+        "quantity": 0
+      },
+      {
+        "product_url": "https://botland.com.pl/raspberry-pi-hat-ekspandery-wyprowadzen/5794-plytka-drukowana-uniwersalna-proto-board-do-raspberry-pi-zero-5904422365332.html",
+        "picture_url": "https://botland.com.pl/raspberry-pi-hat-ekspandery-wyprowadzen/5794-plytka-drukowana-uniwersalna-proto-board-do-raspberry-pi-zero-5904422365332.jpg",
+        "provider": "botland.com.pl",
+        "description": "Płytka drukowana uniwersalna Proto Board do Raspberry Pi Zero",
+        "EAN": "5904422365332",
+        "price": 0,
+        "currency": "PLN",
+        "quantity": 0
+      }
     ]
-}
+  }
