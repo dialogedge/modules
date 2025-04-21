@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator JSON</title>
+</head>
+<body>
+  <h1>Wklej kod HTML poniżej:</h1>
+  <textarea id="htmlInput" rows="20" cols="100" placeholder="Wklej tutaj kod HTML..."></textarea>
+  <br><br>
+  <button onclick="generateJSON()">Generuj JSON</button>
+  <pre id="jsonOutput" style="white-space: pre-wrap; margin-top: 20px;"></pre>
+
+  <script>
+    function generateJSON() {
+      // Pobierz wartość z pola tekstowego
+      const htmlContent = document.getElementById('htmlInput').value;
+
+      // Użyj DOMParser do parsowania HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+
+      // Inicjalizacja tablicy produktów
+      const products = [];
+
+      // Znajdź wszystkie elementy .product-miniature-buttons__column--quantity
+      const quantityElements = doc.querySelectorAll('.product-miniature-buttons__column--quantity');
+
+      quantityElements.forEach((quantityElement) => {
+        // Pobierz informacje o ilości
+        const spinner = quantityElement.querySelector('.spinner__input');
+        const maxQuantity = spinner ? parseInt(spinner.getAttribute('max'), 10) || 0 : 0;
+
+        // Pobierz cenę
+        const priceElement = quantityElement.previousElementSibling?.querySelector('.price.varnish-content');
+        const priceText = priceElement?.textContent.trim().replace('&nbsp;zł', '').replace(',', '.');
+        const price = parseFloat(priceText) || 0;
+
+        // Pobierz opis produktu (jeśli dostępny)
+        const description = quantityElement.parentElement.parentElement.querySelector('.product-name')?.textContent.trim() || '';
+
+        // Dodaj produkt do tablicy
+        products.push({
+          product_url: '', // URL produktu - wymaga dostosowania
+          picture_url: '', // URL zdjęcia - wymaga dostosowania
+          provider: window.location.hostname, // Dostawca - domyślnie bieżąca strona
+          description: description,
+          EAN: '', // Numer EAN - nie ma go w przykładzie
+          price: price,
+          currency: "PLN",
+          quantity: maxQuantity
+        });
+      });
+
+      // Generuj JSON
+      const jsonOutput = JSON.stringify({ products }, null, 2);
+
+      // Wyświetl wynik
+      document.getElementById('jsonOutput').textContent = jsonOutput;
+    }
+  </script>
+</body>
+</html>
