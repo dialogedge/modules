@@ -1,0 +1,18 @@
+{
+    "products": [
+        {
+            "product_url": "https://sklep.pl/produkty/laptop-xps-15",
+            "picture_url": "https://sklep.pl/images/laptop-xps-15.jpg",
+            "price": 5999.99,
+            "currency": "PLN",
+            "quantity": 12
+        },
+        {
+            "product_url": "https://sklep.pl/produkty/smartfon-galaxy-s23",
+            "picture_url": "https://sklep.pl/images/smartfon-galaxy-s23.jpg",
+            "price": 3499.00,
+            "currency": "PLN",
+            "quantity": 25
+        }
+    ]
+}

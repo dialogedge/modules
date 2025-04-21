@@ -66,75 +66,6 @@
     </table>
 
     <script>
-        // Przykładowe dane JSON
-        const jsonData = {
-            "products": [
-                {
-                    "product_url": "https://sklep.pl/produkty/laptop-xps-15",
-                    "picture_url": "https://sklep.pl/images/laptop-xps-15.jpg",
-                    "price": 5999.99,
-                    "currency": "PLN",
-                    "quantity": 12
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/smartfon-galaxy-s23",
-                    "picture_url": "https://sklep.pl/images/smartfon-galaxy-s23.jpg",
-                    "price": 3499.00,
-                    "currency": "PLN",
-                    "quantity": 25
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/sluchawki-bezprzewodowe",
-                    "picture_url": "https://sklep.pl/images/sluchawki-bezprzewodowe.jpg",
-                    "price": 499.90,
-                    "currency": "PLN",
-                    "quantity": 50
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/tablet-pro-11",
-                    "picture_url": "https://sklep.pl/images/tablet-pro-11.jpg",
-                    "price": 2799.00,
-                    "currency": "PLN",
-                    "quantity": 18
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/klawiatura-mechaniczna",
-                    "picture_url": "https://sklep.pl/images/klawiatura-mechaniczna.jpg",
-                    "price": 349.00,
-                    "currency": "PLN",
-                    "quantity": 35
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/monitor-27-4k",
-                    "picture_url": "https://sklep.pl/images/monitor-27-4k.jpg",
-                    "price": 1799.99,
-                    "currency": "PLN",
-                    "quantity": 15
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/mysz-bezprzewodowa",
-                    "picture_url": "https://sklep.pl/images/mysz-bezprzewodowa.jpg",
-                    "price": 199.00,
-                    "currency": "PLN",
-                    "quantity": 60
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/dysk-ssd-1tb",
-                    "picture_url": "https://sklep.pl/images/dysk-ssd-1tb.jpg",
-                    "price": 599.00,
-                    "currency": "PLN",
-                    "quantity": 40
-                },
-                {
-                    "product_url": "https://sklep.pl/produkty/kamera-internetowa-hd",
-                    "picture_url": "https://sklep.pl/images/kamera-internetowa-hd.jpg",
-                    "price": 249.99,
-                    "currency": "PLN",
-                    "quantity": 30
-                }
-            ]
-        };
-
         // Funkcja do pobierania nazwy produktu z URL
         function getProductNameFromUrl(url) {
             // Pobranie ostatniej części URL po ukośniku
@@ -154,23 +85,39 @@
             return '';
         }
 
-        // Wypełnienie tabeli danymi
-        const tableBody = document.getElementById('tableBody');
-        
-        jsonData.products.forEach(product => {
-            const row = document.createElement('tr');
-            
-            // Używamy placeholder jako example zamiast faktycznych zdjęć
-            row.innerHTML = `
-                <td><img class="product-img" src="/api/placeholder/80/80" alt="Produkt"></td>
-                <td>${getProductNameFromUrl(product.product_url)}</td>
-                <td class="price">${product.price.toFixed(2)} ${product.currency}</td>
-                <td class="${getQuantityClass(product.quantity)}">${product.quantity} szt.</td>
-                <td><a href="${product.product_url}" target="_blank">Link do produktu</a></td>
-            `;
-            
-            tableBody.appendChild(row);
-        });
+        // Funkcja do załadowania danych z pliku JSON
+        async function loadProducts() {
+            try {
+                // Załaduj dane z pliku JSON
+                const response = await fetch('products.json'); // Nazwa pliku JSON
+                if (!response.ok) {
+                    throw new Error(`Błąd sieci: ${response.status}`);
+                }
+                const jsonData = await response.json();
+
+                // Wypełnienie tabeli danymi
+                const tableBody = document.getElementById('tableBody');
+                jsonData.products.forEach(product => {
+                    const row = document.createElement('tr');
+                    
+                    // Używamy placeholder jako example zamiast faktycznych zdjęć
+                    row.innerHTML = `
+                        <td><img class="product-img" src="/api/placeholder/80/80" alt="Produkt"></td>
+                        <td>${getProductNameFromUrl(product.product_url)}</td>
+                        <td class="price">${product.price.toFixed(2)} ${product.currency}</td>
+                        <td class="${getQuantityClass(product.quantity)}">${product.quantity} szt.</td>
+                        <td><a href="${product.product_url}" target="_blank">Link do produktu</a></td>
+                    `;
+                    
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Wystąpił błąd podczas ładowania danych:', error);
+            }
+        }
+
+        // Wywołanie funkcji ładowania danych
+        loadProducts();
     </script>
 </body>
 </html>
